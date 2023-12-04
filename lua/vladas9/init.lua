@@ -1,4 +1,5 @@
 vim.opt.nu = true
+vim.wo.relativenumber = true
 
 vim.opt.swapfile = false
 vim.opt.backup = false
