@@ -23,19 +23,21 @@ cmp.setup({
 	  ['<CR>'] = cmp.mapping.confirm({ select = true }),
   },
   sources = {
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' }, -- For snippets
-    { name = 'buffer' },
-    { name = 'path' }
+	  { name = 'nvim_lsp' },
+	  { name = 'luasnip' }, -- For snippets
+	  { name = 'buffer' },
+	  { name = 'path' }
   },
   formatting = {
-        format = lspkind.cmp_format({
-            with_text = true, -- Show the text along with icons
-            maxwidth = 15,    -- Prevent the popup from being too wide
-            before = function (entry, vim_item)
-                return vim_item
-            end
-        }),
-    },
+	  format = lspkind.cmp_format({
+		  with_text = true, -- Show the text along with icons
+		  maxwidth = 20,    -- Prevent the popup from being too wide
+		  before = function(entry, vim_item)
+			  -- Clear out the menu item to remove the gray text
+			  vim_item.menu = ""
+			  return vim_item
+		  end
+	  }),
+  },
 
 })
